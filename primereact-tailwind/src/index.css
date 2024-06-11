@@ -1,11 +1,7 @@
-
-
-
 /* @layer primereact; */
 
 /* IMPORTANT: In "styled" mode you must add the PrimeReact Theme here. Do NOT include in "unstyled" mode */
 /* @import 'primereact/resources/themes/lara-light-blue/theme.css' layer(primereact); */
-
 
 /* @layer tailwind-base,tailwind-utilities;
 
@@ -18,42 +14,80 @@
   @tailwind utilities;
 } */
 
-
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  h1{
-    @apply text-blue-800 text-2xl bg-red-400;
+  html {
+    font-size: 14px;
   }
-  h2{
+  h1 {
+    @apply bg-red-400 text-2xl text-blue-800;
+  }
+  h2 {
     @apply text-xl;
   }
 }
-  
-.layout-contianer {
-  @apply flex bg-gray-200
 
+.layout-contianer {
+  @apply min-h-screen bg-gray-100;
 }
 
 .layout-sidebar {
-  @apply w-72 bg-white items-center
+  @apply fixed h-full w-72 bg-white max-lg:z-auto max-lg:-translate-x-full lg:visible;
 }
 
 .layout-content-wrapper {
-  @apply flex flex-col p-8
-}
-.layout-topbar, .topbar-start {
-  @apply flex items-center
-
+  @apply ml-0 p-4 lg:ml-72 lg:p-8;
 }
 
-.topbar-breadcrumb{
-  @apply sm:hidden
+.layout-topbar {
+  @apply mb-8 flex items-center justify-between;
+}
+
+.topbar-start {
+  @apply flex items-center;
+}
+
+.topbar-menubutton {
+  @apply mr-4 inline-flex h-8 w-8 items-center justify-center rounded-full hover:bg-blue-600 hover:text-white;
+}
+
+.topbar-breadcrumb {
+  @apply max-lg:hidden lg:visible;
+}
+.topbar-breadcrumb > nav {
+  @apply border-0 bg-opacity-0 p-0;
+}
+
+.content-breadcrumb {
+  @apply mb-8 pl-2 pr-2 max-lg:visible lg:hidden;
+}
+
+.content-breadcrumb > nav {
+  @apply border-0 bg-opacity-0 p-0;
 }
 
 .topbar-end {
-  /* @apply flex */
+  /* @apply p-1 */
 }
+
+.topbar-menu {
+  @apply flex items-center gap-2;
+}
+
+.topbar-search {
+  @apply relative flex w-40 items-center sm:w-56;
+}
+
+.topbar-search > i {
+  @apply absolute items-center pl-3 text-xs;
+}
+.topbar-search > input {
+  @apply w-full rounded-full pl-8 text-sm;
+}
+
+/* .topbar-menu > input {
+  @apply p-1
+} */
