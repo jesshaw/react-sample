@@ -19,9 +19,6 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    font-size: 14px;
-  }
   h1 {
     @apply bg-red-400 text-2xl text-blue-800;
   }
