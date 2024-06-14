@@ -32,7 +32,14 @@
 }
 
 .layout-sidebar {
-  @apply fixed h-full w-72 bg-white max-lg:z-auto max-lg:-translate-x-full lg:visible;
+  @apply fixed h-full w-72 bg-white max-lg:z-auto max-lg:-translate-x-full;
+}
+
+.layout-static {
+}
+
+.layout-static-inactive {
+  @apply max-lg:-translate-x-full;
 }
 
 .layout-content-wrapper {

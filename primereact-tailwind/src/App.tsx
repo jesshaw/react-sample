@@ -6,6 +6,8 @@ import { Menubar } from "primereact/menubar";
 import { Sidebar } from "primereact/sidebar";
 import { Link } from "react-router-dom";
 import LayoutLxm from "./LayoutLxm";
+import LxmButton from "./uikit/Button";
+import LxmInput from "./uikit/Input";
 
 const Dashboard = () => (
   <div
@@ -16,6 +18,9 @@ const Dashboard = () => (
       <h1> 标题1</h1>
       <h2> 标题2</h2>
       <p>Welcome to the Dashboard!</p>
+      <p>
+        <a href="#">链接</a>
+      </p>
     </Card>
   </div>
 );
@@ -169,6 +174,8 @@ const App = () => {
           <Route index element={<Dashboard />} />
           <Route path="users" element={<Users />} />
           <Route path="settings" element={<Settings />} />
+          <Route path="uikit/button" element={<LxmButton />} />
+          <Route path="uikit/input" element={<LxmInput />} />
           <Route path="*" element={<NoMatch />} />
         </Route>
       </Routes>
