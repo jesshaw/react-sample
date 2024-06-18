@@ -1,5 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  corePlugins: {
+    preflight: false,
+  },
   darkMode: ["class"],
   content: [
     "./index.html",
@@ -13,15 +16,8 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    screens: {
-    },
+    screens: {},
     extend: {},
   },
-  plugins: [
-    {
-      "postcss-import": {},
-      tailwindcss: {},
-      autoprefixer: {},
-    },
-  ],
+  plugins: [],
 };
