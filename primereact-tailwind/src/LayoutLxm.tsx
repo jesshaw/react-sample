@@ -7,6 +7,10 @@ import { IconField } from "primereact/iconfield";
 import { InputIcon } from "primereact/inputicon";
 import { BreadCrumb } from "primereact/breadcrumb";
 import { Button } from "primereact/button";
+import { Sidebar } from "primereact/sidebar";
+import { useState } from "react";
+import { ThemeProvider } from "./context/ThemeContext";
+import ThemeSelector from "./components/ThemeSelector";
 
 const LayoutLxm = () => {
   const sidebarItems = [
@@ -255,62 +259,64 @@ const LayoutLxm = () => {
     root: "bg-red-500",
   };
 
+  const [menuVisible, setMenuVisible] = useState(false);
   return (
-    <div className="layout-contianer">
-      <div className="layout-sidebar">
-        <div className="sidebar-header">logo</div>
-        <div className="layout-menu-container">
-          <Menu className="w-full border-0" model={sidebarItems} />
-        </div>
-      </div>
-      <div className="layout-content-wrapper">
-        <div className="layout-topbar">
-          <div className="topbar-start">
-            <button
-              type="button"
-              className="topbar-menubutton p-link p-trigger"
-            >
-              <i className="pi pi-bars" />
-            </button>
-            <div className="topbar-breadcrumb">
-              {/* <BreadCrumb model={breadItems} home={home} pt={{ root: { className: 'bg-opacity-0'} }}/>                             */}
-              {/* <BreadCrumb model={breadItems} home={home}  className= ' border-0 bg-opacity-0'/> */}
-              <BreadCrumb model={breadItems} home={home} />
-            </div>
+    <ThemeProvider initialTheme="light/blue">
+      <div className="layout-contianer">
+        <div className="layout-sidebar">
+          <div className="sidebar-header">logo</div>
+          <div className="layout-menu-container">
+            <Menu className="w-full border-0" model={sidebarItems} />
           </div>
-          <div className="topbar-end">
-            <div className="topbar-menu">
-              <div className="topbar-search">
-                <i className="pi pi-search"></i>
-                <InputText placeholder="Search" className="h-8 pl-6" />
+        </div>
+        <div className="layout-content-wrapper">
+          <div className="layout-topbar">
+            <div className="topbar-start">
+              <button
+                type="button"
+                className="topbar-menubutton p-link p-trigger"
+                onClick={() => setMenuVisible(true)}
+              >
+                <i className="pi pi-bars" />
+              </button>
+              <div className="topbar-breadcrumb">
+                {/* <BreadCrumb model={breadItems} home={home} pt={{ root: { className: 'bg-opacity-0'} }}/>                             */}
+                {/* <BreadCrumb model={breadItems} home={home}  className= ' border-0 bg-opacity-0'/> */}
+                <BreadCrumb model={breadItems} home={home} />
               </div>
-              <Button
-                icon="pi pi-cog"
-                rounded
-                text
-                severity="secondary"
-                aria-label="Bookmark"
-              />
-              {/* <button className="layout-config-button config-link" type="button"><i className="pi pi-cog"></i></button> */}
-              <Avatar
-                image="https://primefaces.org/cdn/primereact/images/avatar/amyelsner.png"
-                shape="circle"
-              />
+            </div>
+            <div className="topbar-end">
+              <div className="topbar-menu">
+                <div className="topbar-search">
+                  <i className="pi pi-search"></i>
+                  <InputText placeholder="Search" className="h-8 pl-6" />
+                </div>
+                <ThemeSelector></ThemeSelector>
+                {/* <button className="layout-config-button config-link" type="button"><i className="pi pi-cog"></i></button> */}
+                <Avatar
+                  image="https://primefaces.org/cdn/primereact/images/avatar/amyelsner.png"
+                  shape="circle"
+                />
+              </div>
             </div>
           </div>
+          <div className="content-breadcrumb">
+            <BreadCrumb model={breadItems} home={home} />
+          </div>
+          <div className="layout-content">
+            <Outlet />
+          </div>
         </div>
-        <div className="content-breadcrumb">
-          <BreadCrumb model={breadItems} home={home} />
-        </div>
-        <div className="layout-content">
-          <Outlet />
-        </div>
+        {/* <button
+          className="layout-config-button config-link"
+          type="button"
+          onClick={() => setThemeVisible(true)}
+        >
+          <i className="pi pi-cog"></i>
+        </button> */}
+        <div className="layout-mask"></div>
       </div>
-      <button className="layout-config-button config-link" type="button">
-        <i className="pi pi-cog"></i>
-      </button>
-      <div className="layout-mask"></div>
-    </div>
+    </ThemeProvider>
   );
 };
 

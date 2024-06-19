@@ -1,5 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  corePlugins: {
+    preflight: false,
+  },
   darkMode: ["class"],
   content: [
     "./index.html",
@@ -42,13 +45,19 @@ module.exports = {
       "2xl": "1536px",
       // => @media (min-width: 1536px) { ... }
     },
-    extend: {},
+    extend: {
+      colors: {
+        "l-primary": "var(--primary-color)",
+        "l-surface": "var(--surface-ground)",
+        "l-text": "var(--text-color)",
+      },
+    },
   },
   plugins: [
-    {
-      "postcss-import": {},
-      tailwindcss: {},
-      autoprefixer: {},
-    },
+    // {
+    //   "postcss-import": {},
+    //   tailwindcss: {},
+    //   autoprefixer: {},
+    // },
   ],
 };

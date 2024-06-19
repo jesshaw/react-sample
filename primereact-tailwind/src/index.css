@@ -1,38 +1,38 @@
+@import "primeicons/primeicons.css";
 /* @layer primereact; */
+@layer lxm-base,lxm-componets,lxm-utilities;
 
 /* IMPORTANT: In "styled" mode you must add the PrimeReact Theme here. Do NOT include in "unstyled" mode */
-/* @import 'primereact/resources/themes/lara-light-blue/theme.css' layer(primereact); */
+/* @import "primereact/resources/themes/lara-light-blue/theme.css"
+  layer(lxm-componets); */
+/* @import "primereact/resources/themes/lara-dark-blue/theme.css" layer(primereact); */
 
-/* @layer tailwind-base,tailwind-utilities;
+/* @import "primereact/resources/themes/lara-light-pink/theme.css"
+  layer(primereact); */
 
-@layer tailwind-base {
+/* @import "primereact/resources/themes/lara-dark-pink/theme.css"
+  layer(primereact); */
+/* @import "primereact/resources/themes/tailwind-light/theme.css" layer(primereact); */
+
+@layer lxm-base {
   @tailwind base;
 }
 
-@layer tailwind-utilities {
+@layer lxm-utilities {
   @tailwind components;
   @tailwind utilities;
-} */
+}
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  h1 {
-    @apply bg-red-400 text-2xl text-blue-800;
-  }
-  h2 {
-    @apply text-xl;
-  }
+html,
+body {
+  @apply text-l-text bg-l-surface;
 }
 
 .layout-contianer {
-  @apply min-h-screen bg-gray-100;
 }
 
 .layout-sidebar {
-  @apply fixed h-full w-72 bg-white max-lg:z-auto max-lg:-translate-x-full;
+  @apply fixed h-full w-72 max-lg:z-auto max-lg:-translate-x-full;
 }
 
 .layout-static {
@@ -55,14 +55,14 @@
 }
 
 .topbar-menubutton {
-  @apply mr-4 inline-flex h-8 w-8 items-center justify-center rounded-full hover:bg-blue-600 hover:text-white;
+  @apply hover:text-l-surface hover:bg-l-primary mr-4 inline-flex h-8 w-8 items-center justify-center rounded-full;
 }
 
 .topbar-breadcrumb {
   @apply max-lg:hidden lg:visible;
 }
 .topbar-breadcrumb > nav {
-  @apply border-0 bg-opacity-0 p-0;
+  @apply border-0 bg-white bg-opacity-0 p-0;
 }
 
 .content-breadcrumb {
@@ -70,11 +70,10 @@
 }
 
 .content-breadcrumb > nav {
-  @apply border-0 bg-opacity-0 p-0;
+  @apply border-0 bg-white bg-opacity-0 p-0;
 }
 
 .topbar-end {
-  /* @apply p-1 */
 }
 
 .topbar-menu {
