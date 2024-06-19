@@ -1,11 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-# 忽略项目中所有位置的 node_modules 目录
-primereact-examples/
-vite-primereact-styled-tailwind/
-dist/
-node_modules/
+/node_modules
 /.pnp
 .pnp.js
 
