@@ -47,9 +47,10 @@ module.exports = {
     },
     extend: {
       colors: {
-        "l-primary": "var(--primary-color)",
-        "l-surface": "var(--surface-ground)",
-        "l-text": "var(--text-color)",
+        "lxm-primary": "var(--primary-color)",
+        "lxm-surface": "var(--surface-ground)",
+        "lxm-surface-hover": "var(--surface-hover)",
+        "lxm-text": "var(--text-color)",
       },
     },
   },

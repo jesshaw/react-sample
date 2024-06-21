@@ -1,13 +1,19 @@
 import { Dropdown } from "primereact/dropdown";
 import { useTheme } from "../hooks/useTheme";
 import { Sidebar } from "primereact/sidebar";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { Button } from "primereact/button";
 import { InputSwitch } from "primereact/inputswitch";
 import { SelectButton } from "primereact/selectbutton";
 import { RadioButton, RadioButtonChangeEvent } from "primereact/radiobutton";
 
-const ThemeSelector = () => {
+const ThemeSelector = ({
+  themeVisible,
+  setThemeVisible,
+}: {
+  themeVisible: boolean;
+  setThemeVisible: Dispatch<SetStateAction<boolean>>;
+}) => {
   const { theme, handleChangeTheme } = useTheme();
 
   const themes = [
@@ -20,8 +26,6 @@ const ThemeSelector = () => {
       bgColor: "bg-pink-500",
     },
   ];
-
-  const [themeVisible, setThemeVisible] = useState(false);
 
   const currentColorScheme = theme.split("/")[0];
   const currentTheme = theme.split("/")[1];

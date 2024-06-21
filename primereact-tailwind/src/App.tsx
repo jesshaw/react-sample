@@ -5,7 +5,7 @@ import { Card } from "primereact/card";
 import { Menubar } from "primereact/menubar";
 import { Sidebar } from "primereact/sidebar";
 import { Link } from "react-router-dom";
-import LayoutLxm from "./LayoutLxm";
+import LayoutLxm from "./layout/LayoutLxm";
 import LxmButton from "./uikit/Button";
 import LxmInput from "./uikit/Input";
 
@@ -18,6 +18,12 @@ const Dashboard = () => (
       <h1> 标题1</h1>
       <h2> 标题2</h2>
       <p>Welcome to the Dashboard!</p>
+
+      <p>
+        Welcome to the Dashboard!Welcome to the Dashboard!Welcome to the
+        Dashboard!Welcome to the Dashboard!Welcome to the Dashboard!Welcome to
+        the Dashboard!Welcome to the Dashboard!Welcome to the Dashboard!
+      </p>
       <p>
         <a href="#">链接</a>
       </p>

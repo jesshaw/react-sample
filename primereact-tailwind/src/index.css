@@ -25,21 +25,73 @@
 
 html,
 body {
-  @apply text-l-text bg-l-surface;
+  @apply m-0 min-h-full bg-lxm-surface p-0 text-lxm-text;
 }
 
 .layout-contianer {
+  @apply min-h-screen;
+}
+.layout-contianer.layout-static {
+}
+.layout-contianer.layout-static .layout-sidebar {
+  @apply transition duration-300 ease-in-out lg:translate-x-0;
+}
+
+.layout-contianer.layout-static .layout-content-wrapper {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.layout-contianer.layout-static-inactive .layout-sidebar {
+  @apply -translate-x-full;
+}
+
+.layout-contianer.layout-static.layout-static-inactive .layout-content-wrapper {
+  @apply ml-0;
+}
+
+/* translate-x-0 显示-转化x坐标到0 */
+.layout-contianer.layout-mobile-active .layout-sidebar {
+  @apply translate-x-0;
+}
+
+/* -translate-x-full 隐藏--转化x坐标到-box宽度 */
+.layout-contianer .layout-sidebar {
+  @apply z-[999] -translate-x-full;
+}
+
+.layout-contianer .layout-mask {
+  @apply hidden;
+}
+
+.layout-contianer.layout-mobile-active .layout-mask {
+  @apply block;
+}
+
+.layout-mask {
+  @apply fixed left-0 top-0 z-[998] h-full w-full bg-black opacity-40 transition-opacity duration-1000 ease-in-out;
+}
+
+.blocked-scroll {
+  overflow: hidden;
 }
 
 .layout-sidebar {
-  @apply fixed h-full w-72 max-lg:z-auto max-lg:-translate-x-full;
+  @apply fixed left-0 top-0 h-full w-72 bg-lxm-surface max-lg:translate-x-0;
 }
 
 .layout-static {
 }
 
-.layout-static-inactive {
-  @apply max-lg:-translate-x-full;
+.layout-sidebar .sidebar-header {
+  @apply flex content-center justify-center pb-8 pt-10;
+}
+
+.layout-sidebar .sidebar-header .app-logo .app-logo-normal {
+  @apply inline h-[22px] w-[124px];
+}
+
+.layout-sidebar .sidebar-header .app-logo .app-logo-small {
+  @apply hidden;
 }
 
 .layout-content-wrapper {
@@ -55,7 +107,7 @@ body {
 }
 
 .topbar-menubutton {
-  @apply hover:text-l-surface hover:bg-l-primary mr-4 inline-flex h-8 w-8 items-center justify-center rounded-full;
+  @apply mr-4 inline-flex h-8 w-8 items-center justify-center rounded-full hover:bg-lxm-primary hover:text-lxm-surface;
 }
 
 .topbar-breadcrumb {
@@ -89,6 +141,91 @@ body {
 }
 .topbar-search > input {
   @apply w-full rounded-full pl-8 text-sm;
+}
+
+/* 设置按钮 */
+.layout-config-button {
+  @apply fixed right-0 top-1/2 z-[999] block h-11 w-11 cursor-pointer rounded-bl-md rounded-tl-md border-0 bg-lxm-primary text-lxm-surface shadow-2xl transition hover:opacity-80;
+}
+.layout-config-button > i {
+  @apply text-3xl;
+}
+
+.layout-menu-container {
+  /* 需要在 100vh 和 93px 之间添加空格 */
+  max-height: calc(100vh - 93px);
+  @apply flex-1 overflow-y-auto pb-8;
+}
+
+.layout-menu {
+  @apply m-0 list-none p-0;
+}
+
+.layout-menu .layout-root-menuitem {
+}
+
+.layout-menu .layout-root-menuitem .layout-menuitem-root-text {
+  @apply pb-4 pl-8 pr-8 pt-4 text-sm font-bold uppercase text-lxm-primary;
+}
+.layout-static .layout-root-menuitem > a {
+  @apply hidden;
+}
+
+.layout-menu ul li {
+  @apply list-item;
+}
+
+.layout-menu ul li ul {
+  @apply hidden;
+}
+
+.layout-menu .active-menuitem > ul {
+  /* transition: max-height 1s ease-in-out; */
+  @apply inline transition-all duration-500 ease-in-out;
+  /* @apply inline; */
+}
+
+.layout-menu ul a {
+  @apply relative flex content-center bg-lxm-surface pb-3 pl-8 pr-8 pt-3 text-lxm-text no-underline hover:bg-opacity-10;
+}
+
+.layout-menu a.active-route {
+  @apply font-bold;
+}
+
+.layout-menu .active-menuitem > a > .layout-submenu-toggler {
+  @apply rotate-180;
+}
+
+.layout-menu ul a .layout-menuitem-icon {
+  @apply mr-2 text-lxm-primary;
+}
+.layout-menu ul a .layout-submenu-toggler {
+  @apply ml-auto;
+}
+
+.layout-menu .layout-menuitem-text {
+  @apply text-lxm-text;
+}
+
+.layout-menu ul ul li a {
+  @apply pl-10;
+}
+
+.layout-menu ul ul li li a {
+  @apply pl-12;
+}
+.layout-menu ul ul li li li a {
+  @apply pl-14;
+}
+.layout-menu ul ul li li li li a {
+  @apply pl-16;
+}
+.layout-menu ul ul li li li li li a {
+  @apply pl-[4.5rem];
+}
+.layout-menu ul ul li li li li li li a {
+  @apply pl-20;
 }
 
 /* .topbar-menu > input {
