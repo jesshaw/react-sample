@@ -193,7 +193,7 @@ body {
 }
 
 .layout-menu ul a {
-  @apply animate-flash hover:bg-lxm-menu-hover relative flex content-center pb-3 pl-8 pr-8 pt-3 text-lxm-text no-underline;
+  @apply animate-flash hover:bg-lxm-menu-hover relative flex cursor-pointer content-center pb-3 pl-8 pr-8 pt-3 text-lxm-text no-underline;
 }
 
 .layout-menu a.active-route {
@@ -234,7 +234,3 @@ body {
 .layout-menu ul ul li li li li li li a {
   @apply pl-20;
 }
-
-/* .topbar-menu > input {
-  @apply p-1
-} */

@@ -25,6 +25,30 @@ const ThemeSelector = ({
       name: "pink",
       bgColor: "bg-pink-500",
     },
+    {
+      name: "amber",
+      bgColor: "bg-amber-500",
+    },
+    {
+      name: "cyan",
+      bgColor: "bg-cyan-500",
+    },
+    {
+      name: "green",
+      bgColor: "bg-green-500",
+    },
+    {
+      name: "indigo",
+      bgColor: "bg-indigo-500",
+    },
+    {
+      name: "purple",
+      bgColor: "bg-purple-500",
+    },
+    {
+      name: "teal",
+      bgColor: "bg-teal-500",
+    },
   ];
 
   const currentColorScheme = theme.split("/")[0];
@@ -66,16 +90,16 @@ const ThemeSelector = ({
         onHide={() => setThemeVisible(false)}
       >
         <h5>Themes</h5>
-        <div className="flex flex-wrap gap-8">
+        <div className="grid w-48 grid-cols-4 gap-1">
           {themes.map((t, index) => {
-            let theClassName = "h-8 w-8 rounded-full border-0 ";
-            if (t.bgColor) {
-              theClassName += t.bgColor;
-            }
+            // let theClassName = "h-8 w-8 rounded-full border-0 ";
+            // if (t.bgColor) {
+            //   theClassName += t.bgColor;
+            // }
             return (
-              <div key={index} className="w-3">
+              <div key={index}>
                 <button
-                  className={theClassName}
+                  className={`h-8 w-8 cursor-pointer rounded-full border-0 ${t.bgColor}`}
                   onClick={(e) => handleTheme(t.name)}
                 >
                   {t.name === currentTheme && (
