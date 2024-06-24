@@ -33,14 +33,14 @@ export const sidebarData = [
         icon: "pi pi-fw pi-envelope",
         items: [
           {
-            label: "Home",
-            icon: "pi pi-fw pi-home",
-            url: "/",
+            label: "Inbox",
+            icon: "pi pi-fw pi-inbox",
+            url: "#/apps/mail/inbox",
           },
           {
-            label: "About",
-            icon: "pi pi-fw pi-info",
-            url: "#/users",
+            label: "Compose",
+            icon: "pi pi-fw pi-pencil",
+            url: "#/apps/mail/compose",
           },
         ],
       },
@@ -154,6 +154,7 @@ export const sidebarData = [
                   {
                     label: "Submenu 1.1.1.1",
                     icon: "pi pi-fw pi-align-left",
+                    url: "#/submenu-1-1-1-1",
                   },
                   {
                     label: "Submenu 1.1.1.2",

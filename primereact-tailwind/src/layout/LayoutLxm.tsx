@@ -16,6 +16,7 @@ import { TieredMenu } from "primereact/tieredmenu";
 import { Console } from "console";
 import AppMenu from "./AppMenu";
 import { sidebarData } from "./siderbarService";
+import Logo from "../components/Logo";
 
 const LayoutLxm = () => {
   const panelMenuItemRenderer = (item: any, options: any) => (
@@ -130,7 +131,12 @@ const LayoutLxm = () => {
     <ThemeProvider initialTheme="light/blue">
       <div className="layout-contianer layout-static" ref={divLayoutConatiner}>
         <div className="layout-sidebar">
-          <div className="sidebar-header">logo</div>
+          <div className="sidebar-header">
+            <a className="app-logo" href="/">
+              <Logo />
+              <span>乐享喵</span>
+            </a>
+          </div>
           <div className="layout-menu-container">
             {/* <Menu className="w-full border-0" model={sidebarItems} /> */}
             <AppMenu model={sidebarData} />

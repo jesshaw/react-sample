@@ -1,30 +1,46 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 // 递归菜单组件
-const MenuItem: React.FC<{ item: IMenuItem; index: number; level: number }> = ({
-  item,
-  index,
-  level,
-}) => {
+const MenuItem: React.FC<{
+  item: IMenuItem;
+  index: number;
+  level?: number;
+}> = ({ item, index, level = 0 }) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const liMenuItem = useRef<HTMLLIElement>(null);
+  const activeMenuitemClasName = "active-menuitem";
   const handleToggle = () => {
-    setIsOpen(!isOpen);
+    // setIsOpen(!isOpen);
+    if (liMenuItem.current?.classList.contains(activeMenuitemClasName)) {
+      liMenuItem.current?.classList.remove(activeMenuitemClasName);
+    } else {
+      liMenuItem.current?.classList.add(activeMenuitemClasName);
+    }
   };
   const location = useLocation();
 
   const isPathIncluded = (path: string) => {
-    console.log(location.pathname);
-    console.log(path.substring(1));
+    // console.log(location.pathname);
+    // console.log(path.substring(1));
     return location.pathname == path.replace("#", "");
   };
 
+  useEffect(() => {
+    let activeRoute = liMenuItem.current?.querySelectorAll(".active-route");
+    if (activeRoute && activeRoute.length > 0) {
+      // console.log(liMenuItem.current);
+      liMenuItem.current?.classList.add(activeMenuitemClasName);
+    }
+  }, []); // 空 只执行一次
+
   return (
     <li
+      ref={liMenuItem}
       key={index}
-      className={`${level === 0 ? "layout-root-menuitem" : ""} ${isOpen ? "active-menuitem" : ""} `}
+      className={`${level === 0 ? "layout-root-menuitem" : ""}`}
     >
       {item.url ? (
         <>
@@ -55,73 +71,29 @@ const MenuItem: React.FC<{ item: IMenuItem; index: number; level: number }> = ({
               <i className="pi pi-fw pi-angle-down layout-submenu-toggler"></i>
             )}
           </a>
+          {item.items && (
+            <ul className="layout-menu">
+              {item.items.map((item, itemsIndex) => (
+                <MenuItem
+                  key={itemsIndex}
+                  item={item}
+                  level={level + 1}
+                  index={itemsIndex}
+                />
+              ))}
+            </ul>
+          )}
         </>
-      )}
-      {item.items && (
-        <ul className="layout-menu">
-          {item.items.map((item, itemsIndex) => (
-            <MenuItem
-              key={itemsIndex}
-              item={item}
-              level={level + 1}
-              index={itemsIndex}
-            />
-          ))}
-        </ul>
       )}
     </li>
   );
 };
 
 const AppMenu: React.FC<{ model: IMenuItem[] }> = ({ model }) => {
-  //   const renderMenuItems = (items: IMenuItem[], level: number) => {
-  //     return (
-  //       <ul className="layout-menu">
-  //         {items.map((item, index) => (
-  //           <li key={index} className={level === 0 ? "layout-root-menuitem" : ""}>
-  //             {item.url ? (
-  //               <>
-  //                 {level == 0 && (
-  //                   <div className="layout-menuitem-root-text">{item.label}</div>
-  //                 )}
-  //                 <a href={item.url}>
-  //                   {item.icon && (
-  //                     <i className={`layout-menuitem-icon ${item.icon}`}></i>
-  //                   )}
-  //                   <span className="layout-menuitem-text">{item.label}</span>
-  //                 </a>
-  //               </>
-  //             ) : (
-  //               <>
-  //                 {level == 0 && (
-  //                   <div className="layout-menuitem-root-text">{item.label}</div>
-  //                 )}
-  //                 <a>
-  //                   {item.icon && (
-  //                     <i className={`layout-menuitem-icon ${item.icon}`}></i>
-  //                   )}
-  //                   <span className="layout-menuitem-text">{item.label}</span>
-  //                   {level > 0 &&
-  //                     item.items != undefined &&
-  //                     item.items.length > 0 && (
-  //                       <i className="pi pi-fw pi-angle-down layout-submenu-toggler"></i>
-  //                     )}
-  //                 </a>
-  //               </>
-  //             )}
-  //             {item.items && <>{renderMenuItems(item.items, level + 1)}</>}
-  //           </li>
-  //         ))}
-  //       </ul>
-  //     );
-  //   };
-
-  //   return <>{renderMenuItems(model, 0)}</>;
-
   return (
     <ul className="layout-menu">
       {model.map((item, index) => (
-        <MenuItem key={index} item={item} level={0} index={index} />
+        <MenuItem key={index} item={item} index={index} />
       ))}
     </ul>
   );

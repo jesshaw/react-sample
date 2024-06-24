@@ -49,8 +49,17 @@ module.exports = {
       colors: {
         "lxm-primary": "var(--primary-color)",
         "lxm-surface": "var(--surface-ground)",
-        "lxm-surface-hover": "var(--surface-hover)",
+        "lxm-menu-hover": "var(--highlight-bg)",
         "lxm-text": "var(--text-color)",
+      },
+      keyframes: {
+        flash: {
+          "0%,100%": { opacity: "1" },
+          "50%": { opacity: "0" },
+        },
+      },
+      animation: {
+        flash: "flash 0.5s ease-in-out",
       },
     },
   },
