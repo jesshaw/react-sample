@@ -1,7 +1,7 @@
 import { Dropdown } from "primereact/dropdown";
 import { useTheme } from "../hooks/useTheme";
 import { Sidebar } from "primereact/sidebar";
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction, useState, useEffect } from "react";
 import { Button } from "primereact/button";
 import { InputSwitch } from "primereact/inputswitch";
 import { SelectButton } from "primereact/selectbutton";
@@ -51,6 +51,16 @@ const ThemeSelector = ({
     },
   ];
 
+  const [fontSize, setFontSize] = useState<number>(14);
+  const handFontSize = (size: number) => {
+    if (size > 11 && size < 17) {
+      setFontSize(size);
+      console.log(size);
+      console.log(fontSize);
+      document.documentElement.style.fontSize = `${size}px`;
+    }
+  };
+
   const currentColorScheme = theme.split("/")[0];
   const currentTheme = theme.split("/")[1];
 
@@ -62,16 +72,13 @@ const ThemeSelector = ({
 
   // 配色方案
   const handleColorScheme = (newScheme: string) => {
-    // const htmlElement = document.documentElement;
-    // if (htmlElement.classList.contains("dark")) {
-    //   htmlElement.classList.remove("dark");
-    // } else {
-    //   htmlElement.classList.add("dark");
-    // }
-
     let realNewTheme = theme.replace(currentColorScheme, newScheme);
     handleChangeTheme(realNewTheme);
   };
+
+  useEffect(() => {
+    handFontSize(fontSize);
+  }, []); // 空 只执行一次
 
   return (
     <div>
@@ -92,10 +99,6 @@ const ThemeSelector = ({
         <h5>Themes</h5>
         <div className="grid w-48 grid-cols-4 gap-1">
           {themes.map((t, index) => {
-            // let theClassName = "h-8 w-8 rounded-full border-0 ";
-            // if (t.bgColor) {
-            //   theClassName += t.bgColor;
-            // }
             return (
               <div key={index}>
                 <button
@@ -109,6 +112,30 @@ const ThemeSelector = ({
               </div>
             );
           })}
+        </div>
+
+        <h5>Scale</h5>
+        <div className="flex flex-nowrap items-center">
+          <Button
+            className="pi pi-minus pl-3 pr-1"
+            rounded
+            text
+            onClick={() => handFontSize(fontSize - 1)}
+          />
+          <div className="flex flex-nowrap gap-1">
+            {[...Array(5)].map((_, index) => (
+              <i
+                key={index + 12}
+                className={`pi pi-circle-fill ${index + 12 == fontSize ? "text-lxm-primary" : "text-lxm-surface-border"} `}
+              ></i>
+            ))}
+          </div>
+          <Button
+            className="pi pi-plus pl-3 pr-1"
+            rounded
+            text
+            onClick={() => handFontSize(fontSize + 1)}
+          />
         </div>
         <h5>Color Scheme</h5>
         <div className="flex flex-wrap gap-8">
