@@ -17,6 +17,7 @@ import { Console } from "console";
 import AppMenu from "./AppMenu";
 import { sidebarData } from "./siderbarService";
 import Logo from "../components/Logo";
+import MyProfile from "../components/MyProfile";
 
 const LayoutLxm = () => {
   const panelMenuItemRenderer = (item: any, options: any) => (
@@ -171,10 +172,11 @@ const LayoutLxm = () => {
                   setThemeVisible={setThemeVisible}
                 ></ThemeSelector>
                 {/* <button className="layout-config-button config-link" type="button"><i className="pi pi-cog"></i></button> */}
-                <Avatar
+                {/* <Avatar
                   image="https://primefaces.org/cdn/primereact/images/avatar/amyelsner.png"
                   shape="circle"
-                />
+                /> */}
+                <MyProfile />
               </div>
             </div>
           </div>

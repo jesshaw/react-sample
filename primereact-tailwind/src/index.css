@@ -234,3 +234,14 @@ body {
 .layout-menu ul ul li li li li li li a {
   @apply pl-20;
 }
+
+.my-profile > div {
+  @apply mx-auto flex flex-col md:mx-0;
+}
+.my-profile a {
+  @apply hover:bg-lxm-menu-hover border-lxm-surface-border mb-3 flex cursor-pointer items-center rounded border border-solid p-3 transition duration-150;
+}
+
+.my-profile i {
+  @apply text-lxm-primary;
+}
