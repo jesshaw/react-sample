@@ -50,6 +50,8 @@ module.exports = {
         "lxm-primary": "var(--primary-color)",
         "lxm-surface": "var(--surface-ground)",
         "lxm-surface-border": "var(--surface-border)",
+        "lxm-surface-card": "var(--surface-card)",
+        "lxm-surface-border": "var(--surface-border)",
         "lxm-menu-hover": "var(--highlight-bg)",
         "lxm-text": "var(--text-color)",
         "lxm-text-secondary": "var(--text-color-secondary)",

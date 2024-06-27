@@ -55,8 +55,6 @@ const ThemeSelector = ({
   const handFontSize = (size: number) => {
     if (size > 11 && size < 17) {
       setFontSize(size);
-      console.log(size);
-      console.log(fontSize);
       document.documentElement.style.fontSize = `${size}px`;
     }
   };

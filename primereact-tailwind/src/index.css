@@ -245,3 +245,17 @@ body {
 .my-profile i {
   @apply text-lxm-primary;
 }
+
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.card {
+  @apply bg-lxm-surface-card border-lxm-surface-border mb-8 rounded-xl border border-solid p-8 drop-shadow-sm;
+}
+
+.card:last-child {
+  margin-bottom: 0;
+}

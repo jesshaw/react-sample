@@ -139,10 +139,7 @@ const LayoutLxm = () => {
             </a>
           </div>
           <div className="layout-menu-container">
-            {/* <Menu className="w-full border-0" model={sidebarItems} /> */}
             <AppMenu model={sidebarData} />
-            {/* <TieredMenu model={sidebarItems} breakpoint="767px" /> */}
-            {/* <PanelMenu model={panelMenuItems} style={{ fontSize: "12px" }} /> */}
           </div>
         </div>
         <div className="layout-content-wrapper">
@@ -156,8 +153,6 @@ const LayoutLxm = () => {
                 <i className="pi pi-bars" />
               </button>
               <div className="topbar-breadcrumb">
-                {/* <BreadCrumb model={breadItems} home={home} pt={{ root: { className: 'bg-opacity-0'} }}/>                             */}
-                {/* <BreadCrumb model={breadItems} home={home}  className= ' border-0 bg-opacity-0'/> */}
                 <BreadCrumb model={breadItems} home={home} />
               </div>
             </div>
@@ -171,11 +166,6 @@ const LayoutLxm = () => {
                   themeVisible={themeVisible}
                   setThemeVisible={setThemeVisible}
                 ></ThemeSelector>
-                {/* <button className="layout-config-button config-link" type="button"><i className="pi pi-cog"></i></button> */}
-                {/* <Avatar
-                  image="https://primefaces.org/cdn/primereact/images/avatar/amyelsner.png"
-                  shape="circle"
-                /> */}
                 <MyProfile />
               </div>
             </div>

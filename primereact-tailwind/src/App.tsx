@@ -8,30 +8,7 @@ import { Link } from "react-router-dom";
 import LayoutLxm from "./layout/LayoutLxm";
 import LxmButton from "./uikit/Button";
 import LxmInput from "./uikit/Input";
-
-const Dashboard = () => (
-  <div
-    className="p-grid p-align-center p-justify-center"
-    style={{ height: "100vh" }}
-  >
-    <Card title="Dashboard">
-      <h1> 标题1</h1>
-      <h2> 标题2</h2>
-      <p>Welcome to the Dashboard!</p>
-
-      <p>
-        Welcome to the Dashboard!Welcome to the Dashboard!Welcome to the
-        Dashboard!Welcome to the Dashboard!Welcome to the Dashboard!Welcome to
-        the Dashboard!Welcome to the Dashboard!Welcome to the Dashboard!
-      </p>
-      <p>
-        <a href="#">链接</a>
-      </p>
-
-      <div>dsfasdf</div>
-    </Card>
-  </div>
-);
+import ECommerce from "./dashboard/E-Commerce";
 
 const Users = () => (
   <div
@@ -179,7 +156,7 @@ const App = () => {
     <>
       <Routes>
         <Route path="/" element={<LayoutLxm />}>
-          <Route index element={<Dashboard />} />
+          <Route index element={<ECommerce />} />
           <Route path="users" element={<Users />} />
           <Route path="settings" element={<Settings />} />
           <Route path="uikit/button" element={<LxmButton />} />
